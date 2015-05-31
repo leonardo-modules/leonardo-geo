@@ -1,2 +1,2 @@
 
-from .maplocation.models import MapLocationWidget
+from maplocation.models import MapLocationWidget

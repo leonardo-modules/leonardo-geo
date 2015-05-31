@@ -10,10 +10,10 @@ default_app_config = 'leonardo_geo.Config'
 
 class Default(object):
 
-    optgroup = ('Maps')
+    optgroup = 'Geolocation'
 
     apps = [
-        'leonardo_geo',
+        'leonardo_geo'
     ]
 
     widgets = [
@@ -23,6 +23,6 @@ class Default(object):
 
 class Config(AppConfig, Default):
     name = 'leonardo_geo'
-    verbose_name = _("Maps")
+    verbose_name = _("Geolocation")
 
 default = Default()

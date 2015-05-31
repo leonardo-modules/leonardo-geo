@@ -1,11 +1,8 @@
-# -#- coding: utf-8 -#-
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
-from leonardo.module.web.widgets.forms import WidgetUpdateForm
-
 from leonardo.module.web.models import Widget
+from leonardo.module.web.widgets.forms import WidgetUpdateForm
 
 
 class MapLocationWidgetAdminForm(WidgetUpdateForm):
@@ -18,6 +15,7 @@ MAP_CHOICES = (
     ('roadmap', _("road map")),
     ('sattelite', _("satellite")),
     ('hybrid', _("hybrid")),
+    ('terrain', _("terrain")),
 )
 
 

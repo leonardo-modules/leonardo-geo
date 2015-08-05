@@ -29,7 +29,7 @@ class MapLocationWidget(Widget):
         verbose_name=_("latitude"), max_digits=18, decimal_places=15)
     longitude = models.DecimalField(
         verbose_name=_("longitude"), max_digits=18, decimal_places=15)
-    zoom = models.PositiveSmallIntegerField(max_length=255, verbose_name=_("zoom"), )
+    zoom = models.PositiveSmallIntegerField(verbose_name=_("zoom"), )
     map = models.CharField(
         max_length=255, verbose_name=_("map"), choices=MAP_CHOICES, default="map")
 

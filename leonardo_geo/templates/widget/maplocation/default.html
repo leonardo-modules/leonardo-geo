@@ -21,9 +21,9 @@
 
 	{% if widget.title != '' %}
 	{% if widget.description == '' %}
-	var content = '<b>{{ widget.title }}</b>';
+	var content = '<b>{{ widget.title|escapejs|safe }}</b>';
 	{% else %}
-	var content = '<b>{{ widget.title }}</b><br />{{ widget.description }}';
+	var content = '<b>{{ widget.title|escapejs|safe }}</b><br />{{ widget.description|escapejs|safe }}';
 	{% endif %}
 	var infoWindow = new google.maps.InfoWindow({content: content});
 	infoWindow.open(map, marker);

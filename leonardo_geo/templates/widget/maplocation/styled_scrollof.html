@@ -165,14 +165,12 @@
 
     {% if widget.title != '' %}
     {% if widget.description == '' %}
-    var content = '<b>{{ widget.title }}</b>';
+    var content = '<b>{{ widget.title|escapejs|safe }}</b>';
     {% else %}
-    var content = '<b>{{ widget.title }}</b><br />{{ widget.description }}';
+    var content = "<b>{{ widget.title|escapejs|safe }}</b><br />{{ widget.description|escapejs|safe }}";
     {% endif %}
     var infoWindow = new google.maps.InfoWindow({content: content});
-    marker.addListener('click', function() {
-      infoWindow.open(map, marker);
-    });
+    infoWindow.open(map, marker);
     {% endif %}
 
     map.mapTypes.set('map_style', styledMap);

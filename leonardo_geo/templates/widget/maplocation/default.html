@@ -62,7 +62,9 @@ gmaps.initFunctions[gmaps.initFunctions.length] = function(){
     }
 }
 
-loadResource({src:"https://maps.google.com/maps/api/js", callback: gmaps.init});
+$(function() {
+	loadResource({src:"https://maps.google.com/maps/api/js", callback: gmaps.init});
+});
 
 </script>
 

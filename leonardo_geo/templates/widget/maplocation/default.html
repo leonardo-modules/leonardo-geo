@@ -1,11 +1,24 @@
 {% extends widget.get_base_template %}
 
 {% block content %}
-<div id="{{ widget.fe_identifier }}-map" class="widget-maplocation-map" style='height:100%;'></div>
+<div id="{{ widget.fe_identifier }}-map" class="widget-maplocation-map"></div>
 
 <script type="text/javascript">
 //<![CDATA[
-(function(){
+(function() {
+
+        var widget_height = $("#{{ widget.fe_identifier }} > div").height();
+
+        if ($("#{{ widget.fe_identifier }} .widget-title").length != 0) {
+                var title_height = $("#{{ widget.fe_identifier }} .widget-title").outerHeight(true),
+                    canvas_height = widget_height - title_height;
+
+                console.log(title_height);                    
+                $("#{{ widget.fe_identifier }}-map").height(canvas_height);
+        } else {
+                $("#{{ widget.fe_identifier }}-map").height(widget_height);
+        }
+       
 	var initFn = function () {
 
 		var canvas = $("#{{ widget.fe_identifier }}-map");

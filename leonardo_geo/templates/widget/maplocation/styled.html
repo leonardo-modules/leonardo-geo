@@ -154,7 +154,7 @@
             }
         ]
         var canvas = $("#{{ widget.fe_identifier }}-map");
-        var location = new google.maps.LatLng({{ widget.latitude }}, {{ widget.longitude }});
+        var location = new google.maps.LatLng({{ widget.latitude|escapejs|safe }}, {{ widget.longitude|escapejs|safe }});
         var zoom = {{ widget.zoom }};
 
         var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});

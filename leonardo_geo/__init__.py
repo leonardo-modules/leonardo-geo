@@ -18,6 +18,11 @@ class Default(object):
         'leonardo_geo.models.MapLocationWidget'
     ]
 
+    config = {
+      'GOOGLE_MAPS_API_KEY': ('','API key for Google Maps.'),
+      'GOOGLE_MAPS_STYLES': ('','Styles for Google Maps.')
+    }
+
 
 class Config(AppConfig, Default):
     name = 'leonardo_geo'

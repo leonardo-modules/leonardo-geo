@@ -13,7 +13,7 @@ Installation
 
 .. code-block:: bash
 
-    pip install leonardo_geo
+    pip install -e git+https://github.com/leonardo-modules/leonardo-geo.git#egg=leonardo_geo
 
 or as leonardo bundle
 
@@ -21,19 +21,20 @@ or as leonardo bundle
 
     pip install django-leonardo["geo"]
 
-Add ``leonardo_geo`` to APPS list, in the ``local_settings.py``::
-
-    APPS = [
-        ...
-        'leonardo_geo'
-        ...
-    ]
-
 Load new template to db
 
 .. code-block:: bash
 
-    python manage.py sync_all
+    python manage.py sync_all -f
+
+Optional settings (styles in live_settings)
+---------------------
+
+Google maps styles (example):
+
+You can insert `JSON format of Google maps`_ styles to LIVE SETTINGS.
+
+.. _JSON format of Google maps: https://gist.github.com/dresl/b6234e39adf019c64e15dc50f53374ca
 
 Optional Dependencies
 ---------------------

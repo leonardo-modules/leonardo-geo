@@ -20,7 +20,8 @@ class Default(object):
 
     config = {
       'GOOGLE_MAPS_API_KEY': ('','API key for Google Maps.'),
-      'GOOGLE_MAPS_STYLES': ('','Styles for Google Maps.')
+      'GOOGLE_MAPS_STYLES': ('','Styles for Google Maps.'),
+      'LEAFLET_ACCESS_TOKEN': ('', 'Access token for Leaflet maps'),
     }
 
 

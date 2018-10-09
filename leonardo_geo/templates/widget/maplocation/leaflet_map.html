@@ -1,0 +1,29 @@
+{% extends widget.get_base_template %}
+
+{% block content %}
+<div id="mapid" class="leflet-map" style="height: 100%"></div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" rel='stylesheet' />
+<script type="text/javascript" src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+<script src="http://rawgit.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+    var mymap = L.map('mapid').setView([{{ widget.latitude|escapejs|safe }}, {{ widget.longitude|escapejs|safe }}], {{ widget.zoom }});
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      maxZoom: 20,
+      id: 'mapbox.streets',
+      accessToken: '{{ config.LEAFLET_ACCESS_TOKEN }}'
+    }).addTo(mymap);
+    
+    var marker = L.marker([{{ widget.latitude|escapejs|safe }}, {{ widget.longitude|escapejs|safe }}]).addTo(mymap);
+    {% if widget.title != '' %}
+    marker.bindPopup("<b>{{ widget.title|escapejs|safe }}</b><br />{{ widget.description|escapejs|safe }}").openPopup();
+    {% endif %}
+});
+
+</script>
+
+{% endblock %}

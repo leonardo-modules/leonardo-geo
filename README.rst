@@ -36,6 +36,14 @@ You can insert `JSON format of Google maps`_ styles to LIVE SETTINGS.
 
 .. _JSON format of Google maps: https://gist.github.com/dresl/b6234e39adf019c64e15dc50f53374ca
 
+or
+
+Leaflet maps styles:
+
+Available styles: https://www.mapbox.com/api-documentation/#styles
+
+Or you can create your own: https://www.mapbox.com/help/create-a-custom-style/
+
 Optional Dependencies
 ---------------------
 

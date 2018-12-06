@@ -15,7 +15,7 @@
 $(function(){
 
   if ($(".modal-body .leaflet-map").css("display") != "block") {
-    var leafletMap = L.map('mapid').setView([{{ widget.latitude|escapejs|safe }}, {{ widget.longitude|escapejs|safe }}], {{ widget.zoom }});
+    var leafletMap = L.map('mapid').setView([{{ widget.latitude|safe }}, {{ widget.longitude|safe }}], {{ widget.zoom }});
     
     L.mapbox.accessToken = 'pk.eyJ1IjoiZHJlc2wiLCJhIjoiY2puMXJyeHV2MmQ0dDNwbm8wMnYwaHFnayJ9.zIfQBRd_qmQBv3di56q9ww';
     
@@ -29,7 +29,7 @@ $(function(){
     L.mapbox.styleLayer('{{ config.LEAFLET_MAPBOX_STYLES }}').addTo(leafletMap);
     {% endif %}
     
-    var marker = L.marker([{{ widget.latitude|escapejs|safe }}, {{ widget.longitude|escapejs|safe }}]).addTo(leafletMap);
+    var marker = L.marker([{{ widget.latitude|safe }}, {{ widget.longitude|safe }}]).addTo(leafletMap);
     {% if widget.title != '' %}
     marker.bindPopup("<b>{{ widget.title|escapejs|safe }}</b><br />{{ widget.description|escapejs|safe }}").openPopup();
     {% endif %}

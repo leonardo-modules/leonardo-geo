@@ -25,10 +25,12 @@ $(function(){
       accessToken: '{{ config.LEAFLET_ACCESS_TOKEN }}',
     }).addTo(leafletMap);
 
-    L.mapbox.styleLayer('mapbox://styles/mapbox/outdoors-v9').addTo(installationMap);
+    
     
     {% if config.LEAFLET_MAPBOX_STYLES != '' %}
     L.mapbox.styleLayer('{{ config.LEAFLET_MAPBOX_STYLES }}').addTo(leafletMap);
+    {% else %}
+    L.mapbox.styleLayer('mapbox://styles/mapbox/outdoors-v9').addTo(leafletMap);
     {% endif %}
     
     var marker = L.marker([{{ widget.latitude|safe }}, {{ widget.longitude|safe }}]).addTo(leafletMap);

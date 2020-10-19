@@ -24,6 +24,8 @@ $(function(){
       id: 'mapbox.streets',
       accessToken: '{{ config.LEAFLET_ACCESS_TOKEN }}',
     }).addTo(leafletMap);
+
+    L.mapbox.styleLayer('mapbox://styles/mapbox/outdoors-v9').addTo(installationMap);
     
     {% if config.LEAFLET_MAPBOX_STYLES != '' %}
     L.mapbox.styleLayer('{{ config.LEAFLET_MAPBOX_STYLES }}').addTo(leafletMap);
